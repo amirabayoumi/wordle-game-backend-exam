@@ -1,0 +1,98 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Word Guess Game API",
+        "description": "API documentation for the Word Guess Game",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/words/check": {
+            "post": {
+                "tags": [
+                    "Game"
+                ],
+                "summary": "Submit a guess for the word game",
+                "operationId": "a679787ef1c7e412a26d998cb8ae8dab",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "guess",
+                                    "token"
+                                ],
+                                "properties": {
+                                    "guess": {
+                                        "type": "string",
+                                        "example": "apple"
+                                    },
+                                    "token": {
+                                        "type": "string",
+                                        "example": "123e4567-e89b-12d3-a456-426614174000"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Guess accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "letter": {
+                                                        "type": "string"
+                                                    },
+                                                    "color": {
+                                                        "type": "string"
+                                                    },
+                                                    "order": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "exist": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "tries_left": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Game Over"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "404": {
+                        "description": "No word scheduled for today"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Game",
+            "description": "Game"
+        }
+    ]
+}
