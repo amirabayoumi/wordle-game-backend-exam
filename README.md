@@ -15,5 +15,18 @@ A simple backend API for a Wordle-like word guessing game built with Laravel.
 - File upload support for icons  
 
 
+## Screenshots
 
+**Guessing the word (correct guess):**
 
+![Correct guess](/storage/app/public/screenshots/Screenshot%202025-07-02%20204025.png)
+
+**Guessing the word (incorrect guess):**
+
+![Incorrect guess](/storage/app/public/screenshots/Screenshot%202025-07-02%20204008.png)
+
+**Words List**
+![words](/storage/app/public/screenshots/Screenshot%202025-07-02%20204047.png)
+
+**Swagger**
+![swagger](/storage/app/public/screenshots/Screenshot%202025-07-02%20203120.png)
